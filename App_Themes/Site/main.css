@@ -1,0 +1,17 @@
+﻿body {
+    background: azure;
+}
+
+#ThreadPanel {
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 1024px;
+}
+
+textarea {
+    resize: vertical;
+    display: block;
+    width: 99%;
+}
