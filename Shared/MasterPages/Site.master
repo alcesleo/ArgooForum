@@ -5,25 +5,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder id="HeadContentPlaceholder" runat="server">
-        
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder id="HeadContentPlaceholder" runat="server" />
+
+    <%-- TODO Include these in theme? --%>
+    <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
     <div id="container">
-        <header><a href="Default.aspx"><h1>Argoo Forum</h1></a></header>
+
+        <header><a href="Default.aspx"><h1>Argoo Forum</h1></a><h2>The forum for both bigots and smallots.</h2></header>
+
         <div id="main">
 
-            <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
-        
-            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server" />
+
+
         </div>
     </div>
     </form>
 
     <%-- TODO Scriptmanager...? --%>
-    <%-- TODO Fallback to local jQuery --%>
+    <%-- TODO Fallback from cdn --%>
     <script src="../../Scripts/jquery-1.9.1.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../../Scripts/main.js"></script>

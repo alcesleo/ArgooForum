@@ -16,8 +16,6 @@ public partial class _Default : System.Web.UI.Page
         NotificationPanel.Visible = true;
         NotificationPanel.CssClass = String.Format("alert alert-{0}", alertClass);
         NotificationLabel.Text = message;
-
-        // TODO Implement JS-fading of panel.
     }
 
 

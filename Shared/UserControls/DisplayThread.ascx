@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DisplayThread.ascx.cs" Inherits="Shared_UserControls_DisplayThread" %>
 
 
-<div class="thread">
+<div class="well">
 
     <%-- Title --%>
     <asp:HyperLink 

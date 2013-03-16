@@ -40,11 +40,26 @@
             </asp:Panel>
 
             <div id="Paging">
-                <asp:DataPager ID="DataPager" runat="server">
+                <asp:DataPager ID="DataPager" PageSize="10" QueryStringField="page" runat="server">
                     <Fields>
-                        <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                        <asp:NumericPagerField />
-                        <asp:NextPreviousPagerField ButtonType="Link" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                        <asp:NextPreviousPagerField 
+                            ButtonType="Link" 
+                            ButtonCssClass="label" 
+                            ShowFirstPageButton="False" 
+                            ShowNextPageButton="False" 
+                            ShowPreviousPageButton="True" />
+
+                        <asp:NumericPagerField 
+                            ButtonType="Link" 
+                            CurrentPageLabelCssClass="badge badge-info" 
+                            NumericButtonCssClass="badge" />
+
+                        <asp:NextPreviousPagerField 
+                            ButtonType="Link" 
+                            ButtonCssClass="label" 
+                            ShowLastPageButton="False" 
+                            ShowNextPageButton="True" 
+                            ShowPreviousPageButton="False" />
                     </Fields>
                 </asp:DataPager>
             </div>
@@ -57,33 +72,44 @@
 
         <%-- New thread --%>
         <InsertItemTemplate>
-            <asp:TextBox ID="UserNameTextBox" Text='<%# Bind("UserName") %>' MaxLength="15" runat="server"></asp:TextBox>
+            <div class="well">
+                <%-- Title --%>
+                <asp:TextBox ID="TitleTextBox" Text='<%# Bind("Title") %>' MaxLength="50" runat="server" placeholder="Title"/>
+                <asp:RequiredFieldValidator 
+                    ID="TitleRequiredFieldValidator" runat="server" 
+                    ErrorMessage="Title cannot be empty." 
+                    ControlToValidate="TitleTextBox" 
+                    Display="None" 
+                    ValidationGroup="InsertValidationGroup"/>
 
-            <%-- Title --%>
-            <asp:TextBox ID="TitleTextBox" Text='<%# Bind("Title") %>' MaxLength="50" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator 
-                ID="TitleRequiredFieldValidator" runat="server" 
-                ErrorMessage="Title cannot be empty." 
-                ControlToValidate="TitleTextBox" 
-                Display="None" 
-                ValidationGroup="InsertValidationGroup"/>
+                <%-- Username --%>
+                <asp:TextBox ID="UserNameTextBox" Text='<%# Bind("UserName") %>' MaxLength="15" runat="server" placeholder="Username" />
+                <asp:RequiredFieldValidator 
+                    ID="UserNameRequiredFieldValidator" runat="server" 
+                    ErrorMessage="Username cannot be empty." 
+                    ControlToValidate="TitleTextBox" 
+                    Display="None" 
+                    ValidationGroup="InsertValidationGroup"/>
 
-            <%-- Text --%>
-            <asp:TextBox ID="BodyTextBox" Text='<%# Bind("Text") %>' TextMode="MultiLine"  runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator 
-                ID="BodyRequiredFieldValidator" runat="server" 
-                ErrorMessage="Textarea cannot be empty." 
-                ControlToValidate="BodyTextBox" 
-                Display="None" 
-                ValidationGroup="InsertValidationGroup"/>
+                <%-- TODO Category --%>
+                <asp:DropDownList ID="DropDownList" runat="server"></asp:DropDownList>
 
-            <%-- Button --%>
-            <asp:Button ID="InsertButton" runat="server" Text="Post thread" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
+                <%-- Text --%>
+                <asp:TextBox ID="BodyTextBox" Text='<%# Bind("Text") %>' TextMode="MultiLine" runat="server" />
+                <asp:RequiredFieldValidator 
+                    ID="BodyRequiredFieldValidator" runat="server" 
+                    ErrorMessage="Textarea cannot be empty." 
+                    ControlToValidate="BodyTextBox" 
+                    Display="None" 
+                    ValidationGroup="InsertValidationGroup"/>
+
+                <%-- Button --%>
+                <asp:Button ID="InsertButton" runat="server" Text="Post thread" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
+            </div>
         </InsertItemTemplate>
         
         <%-- Thread list --%>
         <ItemTemplate>
-
             <uc:DisplayThread runat="server" 
                 ID="DisplayThread"
                 ThreadObject='<%# Container.DataItem %>'/>

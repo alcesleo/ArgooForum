@@ -42,38 +42,66 @@
             </asp:Panel>
 
             <div id="Paging">
-                <asp:DataPager ID="DataPager" runat="server">
+                <asp:DataPager ID="DataPager" PageSize="10" QueryStringField="page" runat="server">
                     <Fields>
-                        <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                        <asp:NumericPagerField />
-                        <asp:NextPreviousPagerField ButtonType="Link" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                        <asp:NextPreviousPagerField 
+                            ButtonType="Link" 
+                            ButtonCssClass="label" 
+                            ShowFirstPageButton="False" 
+                            ShowNextPageButton="False" 
+                            ShowPreviousPageButton="True" />
+
+                        <asp:NumericPagerField 
+                            ButtonType="Link" 
+                            CurrentPageLabelCssClass="badge badge-info" 
+                            NumericButtonCssClass="badge" />
+
+                        <asp:NextPreviousPagerField 
+                            ButtonType="Link" 
+                            ButtonCssClass="label" 
+                            ShowLastPageButton="False" 
+                            ShowNextPageButton="True" 
+                            ShowPreviousPageButton="False" />
                     </Fields>
                 </asp:DataPager>
             </div>
         </LayoutTemplate>
 
+        <%-- TODO Remove, obsolete due to code-behind error handling??? --%>
         <EmptyDataTemplate>
             <span>No posts exist in this thread.</span>
         </EmptyDataTemplate>
         
         <InsertItemTemplate>
-            <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
+            <div class="well">
+                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' placeholder="Username" />
+                <asp:RequiredFieldValidator 
+                    ID="UserNameRequiredFieldValidator" 
+                    runat="server" 
+                    ErrorMessage="Username canot be empty." 
+                    ControlToValidate="UserNameTextBox"
+                    Display="None"
+                    ValidationGroup="InsertValidationGroup" />
 
-            <%-- Text --%>
-            <asp:TextBox ID="PostTextBox" runat="server" Text='<%# Bind("Text") %>' TextMode="MultiLine" />
-            <asp:RequiredFieldValidator 
-                ID="PostRequiredFieldValidator" 
-                runat="server" 
-                ErrorMessage="Textarea canot be empty." 
-                ControlToValidate="PostTextBox"
-                Display="None"
-                ValidationGroup="InsertValidationGroup" />
+                <%-- Text --%>
+                <asp:TextBox ID="PostTextBox" runat="server" Text='<%# Bind("Text") %>' TextMode="MultiLine" />
+                <asp:RequiredFieldValidator 
+                    ID="PostRequiredFieldValidator" 
+                    runat="server" 
+                    ErrorMessage="Textarea canot be empty." 
+                    ControlToValidate="PostTextBox"
+                    Display="None"
+                    ValidationGroup="InsertValidationGroup" />
 
-            <asp:Button ID="InsertButton" runat="server" Text="Post response" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
+                <%-- TODO Standing --%>
+
+                <%-- Submit --%>
+                <asp:Button ID="InsertButton" runat="server" Text="Submit" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
+            </div>
         </InsertItemTemplate>
 
         <ItemTemplate>
-            <div class="post">
+            <div class="well">
 
                 <%-- Text --%>
                 <p><asp:Literal ID="TextLiteral" runat="server" Text='<%# Eval("Text") %>' /></p>
@@ -87,8 +115,8 @@
                 <%-- Date --%>
                 <asp:Literal ID="DateLiteral" runat="server" Text='<%# Eval("Date") %>' />
 
-                <div id>
-                    <asp:Button CommandName="Edit" ID="ChangeButton" runat="server" Text="change" CssClass="btn btn-warning btn-small"/>
+                <div class="btn-group pull-right">
+                    <asp:Button CommandName="Edit" ID="ChangeButton" runat="server" Text="change" CssClass="btn btn-small"/>
                     <asp:Button CommandName="Delete" ID="DeleteButton" runat="server" Text="x" CssClass="btn btn-danger btn-small" />
                 </div>
             </div>
@@ -97,8 +125,7 @@
 
         <EditItemTemplate>
 
-            <div class="post">
-                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' Enabled="false"/>
+            <div class="well">
 
                 <%-- Text --%>
                 <asp:TextBox ID="PostTextBox" runat="server" Text='<%# Bind("Text") %>' TextMode="MultiLine" />
@@ -109,8 +136,14 @@
                     ControlToValidate="PostTextBox"
                     Display="None" />
 
-                <asp:Button ID="UpdateButton" runat="server" Text="Save changes" CommandName="Update" CssClass="btn btn-success btn-small"  />
-                <asp:Button ID="CancelButton" runat="server" Text="Cancel" CommandName="Cancel" CssClass="btn btn-small"  />
+                <%-- Username (cannot be edited) --%>
+                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Eval("UserName") %>' Enabled="false"/>
+
+                <%-- Buttons --%>
+                <div class="btn-group pull-right">
+                    <asp:Button ID="CancelButton" runat="server" Text="Cancel" CommandName="Cancel" CssClass="btn btn-small"  />
+                    <asp:Button ID="UpdateButton" runat="server" Text="Save changes" CommandName="Update" CssClass="btn btn-success btn-small"  />
+                </div>
             </div>
         </EditItemTemplate>
 

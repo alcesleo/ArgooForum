@@ -1,5 +1,22 @@
 ﻿body {
-    background: azure;
+    background-color: #333366;
+    padding: 10px;
+}
+
+header {
+    font-family: 'Dancing Script', Georgia, Times, serif;
+    font-size: 59px;
+    line-height: 60px;
+}
+
+.well {
+    overflow: hidden;
+}
+
+p {
+    font-family: 'Cardo', Georgia, Times, serif;
+    font-size: 18px;
+    line-height: 25px;
 }
 
 #ThreadPanel {

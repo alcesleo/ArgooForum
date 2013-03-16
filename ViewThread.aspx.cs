@@ -22,24 +22,28 @@ public partial class _ViewThread : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // TODO Thread does not exist-page
-
-        // Set properties of Thread-box
         // TODO Get thread without querying the database, not necessary
-        var db = new Service();
-        var thread = db.GetThreadByID(ThreadID);
 
-        if (thread != null)
+        // Display the thread
+        if (ThreadID > 0)
         {
-            DisplayThread.ThreadObject = thread;
-            DisplayThread.DataBind();
+            var db = new Service();
+            var thread = db.GetThreadByID(ThreadID);
+
+            if (thread != null)
+            {
+                DisplayThread.ThreadObject = thread;
+                DisplayThread.DataBind();
+            }
+            else
+            {
+                Page.AddErrorMessage(Strings.PageError_Posts_ThreadDoesNotExist);
+            }
         }
         else
         {
-            Page.AddErrorMessage(Strings.PageError_Posts_ThreadDoesNotExist);
+            Response.Redirect("~/Default.aspx");
         }
-
-        
     }
 
 

@@ -5,6 +5,9 @@ using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/// <summary>
+/// Adds simple error-handling to all the pages.
+/// </summary>
 public static class PageExtensions
 {
 
