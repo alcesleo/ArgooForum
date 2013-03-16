@@ -28,8 +28,10 @@
 
     <%-- TODO Scriptmanager...? --%>
     <%-- TODO Fallback from cdn --%>
-    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-    <script src="../../Scripts/main.js"></script>
+    <script src="<%= ResolveClientUrl("~/Scripts/jquery-1.9.1.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/Scripts/bootstrap.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/Scripts/main.js") %>"></script>
+    <asp:ContentPlaceHolder id="ScriptContentPlaceHolder" runat="server" />
 </body>
 </html>
+'
