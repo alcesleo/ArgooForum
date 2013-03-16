@@ -135,6 +135,9 @@
   <data name="PageError_Posts_NotUpdated" xml:space="preserve">
     <value>Could not update post.</value>
   </data>
+  <data name="PageError_Posts_ThreadDoesNotExist" xml:space="preserve">
+    <value />
+  </data>
   <data name="PageError_Thread_NotDeleted" xml:space="preserve">
     <value>Thread could not be deleted.</value>
   </data>

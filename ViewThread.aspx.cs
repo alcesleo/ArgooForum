@@ -29,8 +29,19 @@ public partial class _ViewThread : System.Web.UI.Page
         var db = new Service();
         var thread = db.GetThreadByID(ThreadID);
 
-        DisplayThread.ThreadObject = thread;
+        if (thread != null)
+        {
+            DisplayThread.ThreadObject = thread;
+            DisplayThread.DataBind();
+        }
+        else
+        {
+            Page.AddErrorMessage(Strings.PageError_Posts_ThreadDoesNotExist);
+        }
+
+        
     }
+
 
     protected void PostObjectDataSource_Inserting(object sender, ObjectDataSourceMethodEventArgs e)
     {
