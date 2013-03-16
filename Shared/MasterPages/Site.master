@@ -5,11 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder id="HeadContentPlaceholder" runat="server" />
 
     <%-- TODO Include these in theme? --%>
     <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder id="HeadContent" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,7 +20,7 @@
 
         <div id="main">
 
-            <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server" />
+            <asp:ContentPlaceHolder id="MainContent" runat="server" />
 
 
         </div>
@@ -31,7 +32,7 @@
     <script src="<%= ResolveClientUrl("~/Scripts/jquery-1.9.1.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/Scripts/bootstrap.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/Scripts/main.js") %>"></script>
-    <asp:ContentPlaceHolder id="ScriptContentPlaceHolder" runat="server" />
+    <asp:ContentPlaceHolder id="ScriptContent" runat="server" />
 </body>
 </html>
 '

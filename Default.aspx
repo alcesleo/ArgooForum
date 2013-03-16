@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Frontpage - Argoo Forum" Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
-<asp:Content ID="ThreadContent" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
+<asp:Content ID="ThreadContent" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <%-- Notifications --%>
     <asp:ValidationSummary ID="InsertValidationSummary" runat="server" ValidationGroup="InsertValidationGroup" CssClass="alert alert-error" />
@@ -39,7 +39,8 @@
                 <span runat="server" id="ItemPlaceholder" />
             </asp:Panel>
 
-            <div id="Paging">
+            <%-- TODO Breakout to user control? This should always be exactly the same as in ViewThread --%>
+            <div id="Paging" class="pull-right">
                 <asp:DataPager ID="DataPager" PageSize="10" QueryStringField="page" runat="server">
                     <Fields>
                         <asp:NextPreviousPagerField 

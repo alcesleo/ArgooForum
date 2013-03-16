@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Thread" Language="C#" AutoEventWireup="true" CodeFile="ViewThread.aspx.cs" Inherits="_ViewThread" %>
 
 
-<asp:Content ID="Main" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
+<asp:Content ID="Main" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <%-- Display thread content --%>
     <uc:DisplayThread runat="server" ID="DisplayThread" />
@@ -41,7 +41,7 @@
                 <span runat="server" id="ItemPlaceholder" />
             </asp:Panel>
 
-            <div id="Paging">
+            <div id="Paging" class="pull-right">
                 <asp:DataPager ID="DataPager" PageSize="10" QueryStringField="page" runat="server">
                     <Fields>
                         <asp:NextPreviousPagerField 
