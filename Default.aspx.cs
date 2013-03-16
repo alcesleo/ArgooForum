@@ -51,7 +51,8 @@ public partial class _Default : System.Web.UI.Page
     {
         if (e.Exception == null)
         {
-            // TODO Redirect to thread
+            // Redirect to created thread
+            Response.Redirect("~/ViewThread.aspx?id=" + e.ReturnValue);
         }
         else
         {

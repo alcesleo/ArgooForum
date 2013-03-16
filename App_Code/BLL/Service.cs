@@ -53,7 +53,8 @@ public class Service
     /// Save a thread to the database. Inserts or updates accordingly.
     /// </summary>
     /// <param name="thread">The thread to save.</param>
-    public void SaveThread(Thread thread)
+    /// <returns>The ID of the saved thread.</returns>
+    public int SaveThread(Thread thread)
     {
         if (thread.IsValid)
         {
@@ -67,6 +68,11 @@ public class Service
             {
                 ThreadDAL.UpdateThread(thread);
             }
+
+            // The ThreadID of the saved object is set by the DAL when inserting
+            // This is used to redirect to a newly created thread after its been inserted,
+            // and you can't get a reference to the object.
+            return thread.ThreadID;
         }
         else
         {
@@ -75,6 +81,7 @@ public class Service
             ex.Data.Add("Thread", thread);
             throw ex;
         }
+
     }
 
     /// <summary>
@@ -122,7 +129,8 @@ public class Service
     /// Saves a post to the database. Inserts or updates accordingly.
     /// </summary>
     /// <param name="post">The post to save.</param>
-    public void SavePost(Post post)
+    /// <returns>The ID of the post that has been saved.</returns>
+    public int SavePost(Post post)
     {
         if (post.IsValid)
         {
@@ -136,6 +144,8 @@ public class Service
             {
                 PostDAL.UpdatePost(post);
             }
+
+            return post.PostID;
         }
         else
         {

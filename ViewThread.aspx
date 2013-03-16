@@ -66,11 +66,6 @@
                 </asp:DataPager>
             </div>
         </LayoutTemplate>
-
-        <%-- TODO Remove, obsolete due to code-behind error handling??? --%>
-        <EmptyDataTemplate>
-            <span>No posts exist in this thread.</span>
-        </EmptyDataTemplate>
         
         <InsertItemTemplate>
             <div class="well">
@@ -93,7 +88,7 @@
                     Display="None"
                     ValidationGroup="InsertValidationGroup" />
 
-                <%-- TODO Standing --%>
+                <%-- TODO Standing radiobuttons --%>
 
                 <%-- Submit --%>
                 <asp:Button ID="InsertButton" runat="server" Text="Submit" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
