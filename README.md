@@ -17,3 +17,6 @@ I want to make, but probably won't have the time to implement.
 - Editing and inserting of threads and posts should be handled by a user-control. Once again cheating using the power of ListViews.
 - Post/Redirect/Get should be used to avoid double-inserts when refreshing.
 - UserName-field should be removed and replaced by full-fledged login capability.
+- Editing and deleting should be possible only when you are logged in, and only on your own posts and threads.
+- Standing should display the standing and not the ID
+- You should be able to pick a category, right now it defaults to CategoryID = 1, and only displays the ID.
