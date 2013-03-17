@@ -5,18 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-
-    <%-- TODO Include these in theme? --%>
-    <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css" />
-
     <asp:ContentPlaceHolder id="HeadContent" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
     <div id="container">
 
-        <header><a href="Default.aspx"><h1>Argoo Forum</h1></a><h2>The forum for both bigots and smallots.</h2></header>
+        <header>
+            <a href="Default.aspx"><h1>Argoo Forum</h1></a>
+            <h2>The forum for both bigots and smallots.</h2>
+        </header>
 
         <div id="main">
 

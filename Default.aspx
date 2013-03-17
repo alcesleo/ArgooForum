@@ -106,7 +106,7 @@
                     ValidationGroup="InsertValidationGroup"/>
 
                 <%-- Button --%>
-                <asp:Button ID="InsertButton" runat="server" Text="Post thread" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
+                <asp:Button ID="InsertButton" runat="server" Text="Post thread" CommandName="Insert" CssClass="btn btn-primary btn-large pull-right"  />
             </div>
         </InsertItemTemplate>
         
