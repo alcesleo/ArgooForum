@@ -16,11 +16,24 @@ public partial class _ViewThread : System.Web.UI.Page
         }
     }
 
+    /// <summary>
+    /// Display a notification.
+    /// </summary>
+    /// <param name="message">The message to display</param>
+    /// <param name="alertClass">The bootstrap alert-class suffix. Ex "success", "error", "warning".</param>
+    private void DisplayNotification(string message, string alertClass)
+    {
+        NotificationPanel.Visible = true;
+        NotificationPanel.CssClass = String.Format("alert alert-{0}", alertClass);
+        NotificationLabel.Text = message;
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         // TODO Get thread without querying the database, not necessary
-
+        // TODO Post changed message
+        // TODO Post deleted message
+        
         // Display the thread
         if (ThreadID > 0)
         {
@@ -82,6 +95,10 @@ public partial class _ViewThread : System.Web.UI.Page
             Page.AddErrorMessage(Strings.PageError_Posts_NotPosted);
             e.ExceptionHandled = true;
         }
+        else
+        {
+            // Notification, in case viewing the thread pop into the listview is enough...
+        }
     }
 
 
@@ -103,6 +120,10 @@ public partial class _ViewThread : System.Web.UI.Page
             Page.AddErrorMessage(Strings.PageError_Posts_NotUpdated);
             e.ExceptionHandled = true;
         }
+        else
+        {
+            DisplayNotification(Strings.PageSuccess_Posts_Updated, "success");
+        }
     }
 
 
@@ -112,6 +133,10 @@ public partial class _ViewThread : System.Web.UI.Page
         {
             Page.AddErrorMessage(Strings.PageError_Posts_NotDeleted);
             e.ExceptionHandled = true;
+        }
+        else
+        {
+            DisplayNotification(Strings.PageSuccess_Posts_Deleted, "success");
         }
     }
 }

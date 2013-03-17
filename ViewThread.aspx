@@ -8,9 +8,13 @@
         <uc:DisplayThread runat="server" ID="DisplayThread" Editable="true" />
     </div>
 
-    <%-- Error-messages --%>
+    <%-- Notifications --%>
     <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="alert alert-error" />
     <asp:ValidationSummary ID="InsertValidationSummary" runat="server" ValidationGroup="InsertValidationGroup" CssClass="alert alert-error" />
+    <%-- TODO Put this in master-page? --%>
+     <asp:Panel ID="NotificationPanel" runat="server" Visible="false">
+        <asp:Label ID="NotificationLabel" runat="server" />
+    </asp:Panel>
 
     <%-- Get posts from thread --%>
     <asp:ObjectDataSource 

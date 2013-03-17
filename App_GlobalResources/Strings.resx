@@ -136,7 +136,7 @@
     <value>Could not update post.</value>
   </data>
   <data name="PageError_Posts_ThreadDoesNotExist" xml:space="preserve">
-    <value />
+    <value>The requested thread does not exist.</value>
   </data>
   <data name="PageError_Thread_NotDeleted" xml:space="preserve">
     <value>Thread could not be deleted.</value>
@@ -149,6 +149,12 @@
   </data>
   <data name="PageError_Thread_NotUpdated" xml:space="preserve">
     <value>Could not update thread.</value>
+  </data>
+  <data name="PageSuccess_Posts_Deleted" xml:space="preserve">
+    <value>Post successfully deleted.</value>
+  </data>
+  <data name="PageSuccess_Posts_Updated" xml:space="preserve">
+    <value>Post successfully changed.</value>
   </data>
   <data name="PageSuccess_Thread_Deleted" xml:space="preserve">
     <value>Thread successfully deleted.</value>

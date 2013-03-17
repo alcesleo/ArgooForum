@@ -118,10 +118,10 @@
                     ID="DisplayThread"
                     ThreadObject='<%# Container.DataItem %>'/>
 
-                <asp:Panel ID="ButtonPanel" runat="server"  CssClass="pull-right">
-                    <asp:Button CommandName="Edit" ID="ChangeButton" runat="server" Text="change" CssClass="btn btn-warning btn-small" />
-                    <asp:Button CommandName="Delete" ID="DeleteButton" runat="server" Text="x" CssClass="btn btn-danger btn-small"/>
-                 </asp:Panel>
+                <div class="btn-group pull-right">
+                    <asp:Button CommandName="Edit" ID="ChangeButton" runat="server" Text="change" CssClass="btn btn-small"/>
+                    <asp:Button CommandName="Delete" ID="DeleteButton" runat="server" Text="x" CssClass="btn btn-danger btn-small" />
+                </div>
             </div>
         </ItemTemplate>
 
