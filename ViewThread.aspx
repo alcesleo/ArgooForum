@@ -99,7 +99,7 @@
                 <%-- TODO Standing radiobuttons --%>
 
                 <%-- Submit --%>
-                <asp:Button ID="InsertButton" runat="server" Text="Submit" CommandName="Insert" CssClass="btn btn-primary btn-large"  />
+                <asp:Button ID="InsertButton" runat="server" Text="Submit" CommandName="Insert" CssClass="btn btn-primary pull-right"  />
             </div>
         </InsertItemTemplate>
 

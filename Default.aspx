@@ -77,7 +77,7 @@
                 
                 <%-- TODO Use a User Control to insert --%>
                 <%-- Title --%>
-                <asp:TextBox ID="TitleTextBox" Text='<%# Bind("Title") %>' MaxLength="50" runat="server" placeholder="Title"/>
+                <asp:TextBox ID="TitleTextBox" Text='<%# Bind("Title") %>' MaxLength="50" runat="server" placeholder="Title" CssClass="input-xlarge"/>
                 <asp:RequiredFieldValidator 
                     ID="TitleRequiredFieldValidator" runat="server" 
                     ErrorMessage="Title cannot be empty." 

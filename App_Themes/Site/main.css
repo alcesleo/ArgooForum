@@ -4,6 +4,10 @@ body {
     padding: 10px;
 }
 
+ul {
+   list-style-type: none;   
+}
+
 header {
     overflow: hidden;
     margin-bottom: 20px;
