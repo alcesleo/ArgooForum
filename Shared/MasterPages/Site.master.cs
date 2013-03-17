@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 public partial class Shared_MasterPages_Site : System.Web.UI.MasterPage
 {
     
-
     protected void Page_Load(object sender, EventArgs e)
     {
 

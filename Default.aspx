@@ -74,6 +74,8 @@
         <%-- New thread --%>
         <InsertItemTemplate>
             <div class="well">
+                
+                <%-- TODO Use a User Control to insert --%>
                 <%-- Title --%>
                 <asp:TextBox ID="TitleTextBox" Text='<%# Bind("Title") %>' MaxLength="50" runat="server" placeholder="Title"/>
                 <asp:RequiredFieldValidator 
@@ -93,7 +95,6 @@
                     ValidationGroup="InsertValidationGroup"/>
 
                 <%-- TODO Category --%>
-                <asp:DropDownList ID="DropDownList" runat="server"></asp:DropDownList>
 
                 <%-- Text --%>
                 <asp:TextBox ID="BodyTextBox" Text='<%# Bind("Text") %>' TextMode="MultiLine" runat="server" />
@@ -111,11 +112,50 @@
         
         <%-- Thread list --%>
         <ItemTemplate>
-            <uc:DisplayThread runat="server" 
-                ID="DisplayThread"
-                ThreadObject='<%# Container.DataItem %>'/>
+            <div class="well">
 
+                <uc:DisplayThread runat="server" 
+                    ID="DisplayThread"
+                    ThreadObject='<%# Container.DataItem %>'/>
+
+                <asp:Panel ID="ButtonPanel" runat="server"  CssClass="pull-right">
+                    <asp:Button CommandName="Edit" ID="ChangeButton" runat="server" Text="change" CssClass="btn btn-warning btn-small" />
+                    <asp:Button CommandName="Delete" ID="DeleteButton" runat="server" Text="x" CssClass="btn btn-danger btn-small"/>
+                 </asp:Panel>
+            </div>
         </ItemTemplate>
+
+        <EditItemTemplate>
+            <div class="well">
+                <%-- TODO Use a User Control to edit --%>
+                <%-- Title --%>
+                <asp:TextBox ID="TitleTextBox" Text='<%# Bind("Title") %>' MaxLength="50" runat="server" placeholder="Title"/>
+                <asp:RequiredFieldValidator 
+                    ID="TitleRequiredFieldValidator" runat="server" 
+                    ErrorMessage="Title cannot be empty." 
+                    ControlToValidate="TitleTextBox" 
+                    Display="None" />
+
+                <%-- Username (not editable) --%>
+                <asp:TextBox ID="UserNameTextBox" Text='<%# Bind("UserName") %>' MaxLength="15" runat="server" Enabled="false"/>
+
+                <%-- TODO Category --%>
+
+                <%-- Text --%>
+                <asp:TextBox ID="BodyTextBox" Text='<%# Bind("Text") %>' TextMode="MultiLine" runat="server" />
+                <asp:RequiredFieldValidator 
+                    ID="BodyRequiredFieldValidator" runat="server" 
+                    ErrorMessage="Textarea cannot be empty." 
+                    ControlToValidate="BodyTextBox" 
+                    Display="None" />
+
+                <%-- Buttons --%>
+                <div class="btn-group pull-right">
+                    <asp:Button ID="CancelButton" runat="server" Text="Cancel" CommandName="Cancel" CssClass="btn btn-small"  />
+                    <asp:Button ID="UpdateButton" runat="server" Text="Save changes" CommandName="Update" CssClass="btn btn-success btn-small"  />
+                </div>
+            </div>
+        </EditItemTemplate>
 
         
     </asp:ListView>

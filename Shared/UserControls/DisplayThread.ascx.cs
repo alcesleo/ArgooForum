@@ -14,6 +14,6 @@ public partial class Shared_UserControls_DisplayThread : System.Web.UI.UserContr
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        // TODO Error message if no thread is set?
     }
 }

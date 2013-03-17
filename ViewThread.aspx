@@ -4,8 +4,11 @@
 <asp:Content ID="Main" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <%-- Display thread content --%>
-    <uc:DisplayThread runat="server" ID="DisplayThread" />
+    <div class="well">
+        <uc:DisplayThread runat="server" ID="DisplayThread" Editable="true" />
+    </div>
 
+    <%-- Error-messages --%>
     <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="alert alert-error" />
     <asp:ValidationSummary ID="InsertValidationSummary" runat="server" ValidationGroup="InsertValidationGroup" CssClass="alert alert-error" />
 
@@ -69,14 +72,6 @@
         
         <InsertItemTemplate>
             <div class="well">
-                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' placeholder="Username" />
-                <asp:RequiredFieldValidator 
-                    ID="UserNameRequiredFieldValidator" 
-                    runat="server" 
-                    ErrorMessage="Username canot be empty." 
-                    ControlToValidate="UserNameTextBox"
-                    Display="None"
-                    ValidationGroup="InsertValidationGroup" />
 
                 <%-- Text --%>
                 <asp:TextBox ID="PostTextBox" runat="server" Text='<%# Bind("Text") %>' TextMode="MultiLine" />
@@ -85,6 +80,15 @@
                     runat="server" 
                     ErrorMessage="Textarea canot be empty." 
                     ControlToValidate="PostTextBox"
+                    Display="None"
+                    ValidationGroup="InsertValidationGroup" />
+
+                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' placeholder="Username" />
+                <asp:RequiredFieldValidator 
+                    ID="UserNameRequiredFieldValidator" 
+                    runat="server" 
+                    ErrorMessage="Username canot be empty." 
+                    ControlToValidate="UserNameTextBox"
                     Display="None"
                     ValidationGroup="InsertValidationGroup" />
 
