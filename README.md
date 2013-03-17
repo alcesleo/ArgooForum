@@ -6,7 +6,7 @@ A simple forum written in ASP.NET WebForms
 ## General
 
 This is a basic forum application written for an assignment, with a quite 
-stressful timeframe. Hence, there is some 'quick-fixes' in here that I really
+stressful timeframe. Hence, there are some 'quick-fixes' in here that I really
 would like to see done in another way, but I just had to get them working to
 meet the requirements of the assignment before it was due. 
 
