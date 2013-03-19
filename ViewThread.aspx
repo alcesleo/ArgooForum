@@ -5,7 +5,7 @@
 
     <%-- Display thread content --%>
     <div class="well">
-        <uc:DisplayThread runat="server" ID="DisplayThread" Editable="true" />
+        <uc:DisplayThread runat="server" ID="DisplayThread" />
     </div>
 
     <%-- Notifications --%>

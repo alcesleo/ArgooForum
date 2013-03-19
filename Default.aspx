@@ -67,11 +67,6 @@
             </div>
         </LayoutTemplate>
 
-        <%-- Not found --%>
-        <EmptyDataTemplate>
-            <span>No threads were found.</span>
-        </EmptyDataTemplate>
-
         <%-- New thread --%>
         <InsertItemTemplate>
             <div class="well">

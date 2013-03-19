@@ -48,6 +48,10 @@ public partial class _ViewThread : System.Web.UI.Page
             else
             {
                 Page.AddErrorMessage(Strings.PageError_Posts_ThreadDoesNotExist);
+
+                // TODO Don't display containing "well"-div
+                DisplayThread.Visible = false;
+                PostListView.Visible = false;
             }
         }
         else
