@@ -55,7 +55,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            Page.AddErrorMessage(Strings.PageError_Thread_NotPosted);
+            Page.AddErrorMessage(Strings.PageError_Thread_NotPosted, "InsertValidationGroup");
             e.ExceptionHandled = true;
         }
     }

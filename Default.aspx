@@ -4,6 +4,7 @@
 
     <%-- Notifications --%>
     <asp:ValidationSummary ID="InsertValidationSummary" runat="server" ValidationGroup="InsertValidationGroup" CssClass="alert alert-error" />
+    <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="alert alert-error" />
 
     <asp:Panel ID="NotificationPanel" runat="server" Visible="false">
         <asp:Label ID="NotificationLabel" runat="server" />
