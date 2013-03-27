@@ -20,3 +20,4 @@ I want to make, but probably won't have the time to implement.
 - Editing and deleting should be possible only when you are logged in, and only on your own posts and threads.
 - Standing should display the standing and not the ID
 - You should be able to pick a category, right now it defaults to CategoryID = 1, and only displays the ID.
+- ViewState should be enabled for edit fields so they won't be cleared when there is an error.
